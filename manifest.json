@@ -1,6 +1,6 @@
 {
     "name" : "mall-app-web",
-    "appid" : "__UNI__4631290",
+    "appid" : "__UNI__8E7DBE9",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -50,7 +50,9 @@
             },
             "ios" : {},
             /* ios打包配置 */
-            "sdkConfigs" : {}
+            "sdkConfigs" : {
+                "ad" : {}
+            }
         }
     },
     /* SDK配置 */
@@ -71,7 +73,7 @@
         },
         "domain" : "localhost",
         "router" : {
-            "base" : ""
+            "base" : "/Users/zhaopei/code/mall-app-dist/"
         }
     }
 }

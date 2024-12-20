@@ -5,10 +5,10 @@
 			<image class="bg" src="/static/user-bg.jpg"></image>
 			<view class="user-info-box">
 				<view class="portrait-box">
-					<image class="portrait" :src="userInfo.icon || '/static/missing-face.png'"></image>
+					<image class="portrait" :src="userInfo.icon || '/static/missing-face.png'" @click="goToLogin"></image>
 				</view>
 				<view class="info-box">
-					<text class="username">{{userInfo.nickname || global.language.defaultUserName}}</text>
+					<text class="username" @click="goToLogin">{{userInfo.nickname || global.language.defaultUserName}}</text>
 				</view>
 			</view>
 			<view class="vip-card-box">
@@ -104,7 +104,7 @@
 				coverTransition: '0s',
 				moving: false,
 				couponCount:null,
-				global: global,
+				global: global
 			}
 		},
 		onLoad(){
@@ -195,8 +195,12 @@
 				this.moving = false;
 				this.coverTransition = 'transform 0.3s cubic-bezier(.21,1.93,.53,.64)';
 				this.coverTransform = 'translateY(0px)';
+			},
+			goToLogin(){
+				if(!this.hasLogin)
+					this.navTo('/pages/public/login');
 			}
-        }  
+        }
     }  
 </script>  
 <style lang='scss'>

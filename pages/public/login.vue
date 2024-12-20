@@ -12,7 +12,7 @@
 			<view class="input-content">
 				<view class="input-item">
 					<text class="tit">{{ global.language.username }}</text>
-					<input type="text" v-model="username" :placeholder="global.language.usernameTip" maxlength="11"/>
+					<input type="text" v-model="username" :placeholder="global.language.usernameTip" maxlength="30"/>
 				</view>
 				<view class="input-item">
 					<text class="tit">{{ global.language.password }}</text>

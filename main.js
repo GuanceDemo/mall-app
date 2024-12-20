@@ -46,3 +46,23 @@ const app = new Vue({
     ...App
 })
 app.$mount()
+
+// #ifdef H5 || APP-PLUS || APP-NVUE || APP-PLUS-NVUE
+import { datafluxRum } from '@cloudcare/browser-rum';
+  datafluxRum.init({
+    applicationId: 'mall_app',
+    site: 'https://rum-openway.guance.com',
+    clientToken: '64db7ec5c2024ebea0387b55d5e2d536',
+    env: 'datakit_env',
+    version: '1.0.0',
+    service: 'datakit_service',
+    sessionSampleRate: 100,
+    sessionReplaySampleRate: 100,
+    trackInteractions: true,
+    traceType: 'ddtrace',
+    allowedTracingOrigins: [/.*/],
+  });
+  datafluxRum.startSessionReplayRecording();
+// #endif
+
+
