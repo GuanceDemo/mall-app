@@ -73,7 +73,7 @@
         },
         "domain" : "localhost",
         "router" : {
-            "base" : "/Users/zhaopei/code/mall-app-dist/"
+            "base" : ""
         }
     }
 }
