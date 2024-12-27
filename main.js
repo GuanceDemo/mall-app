@@ -62,7 +62,23 @@ import { datafluxRum } from '@cloudcare/browser-rum';
     traceType: 'ddtrace',
     allowedTracingOrigins: [/.*/],
   });
-  datafluxRum.startSessionReplayRecording();
+  store.watch(
+  (state) => state.userInfo,
+  (userInfo) => {
+	if(userInfo){
+	  datafluxRum.setUser({
+		  id: userInfo.id,
+		  name: userInfo.username,
+	  });
+  }else{
+	  datafluxRum.setUser({
+		  id: null,
+		  name: null,
+	  });
+  }
+  }
+);
+datafluxRum.startSessionReplayRecording();
 // #endif
 
 

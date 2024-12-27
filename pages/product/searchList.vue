@@ -1,7 +1,7 @@
 <template>
   <view class="content">
     <div class="search-box">
-      <input type="text" :placeholder="global.language.keyWord" v-model="keyword" @confirm="search">
+      <input type="text" :placeholder="global.language.keyWord" v-model="keyword" @input="search">
     </div>
     <view class="goods-list">
       <view v-for="(item, index) in searchResult" :key="index" class="goods-item" @click="navToDetailPage(item)">
@@ -52,7 +52,14 @@ export default {
           this.searchResult = response.data.list;
         }
       })
-    }
+    },
+	navToDetailPage(item){
+		// 导航到详情页面的逻辑
+		    console.log(item);
+			uni.navigateTo({
+				url: `/pages/product/product?id=` + item.id
+			});
+	}
   }
 }
 </script>
